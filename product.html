@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — 2G Clothing</title>
+  <meta name="description" content="2G Clothing — Original South African streetwear. Est. 2018." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  Free delivery on orders over R800 &nbsp;·&nbsp; 2G Clothing — Est. 2018 &nbsp;·&nbsp; South Africa's Original
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo">2<span>G</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="shop.html?collection=graphic">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="cart.html" class="nav__icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count"></span>
+        </a>
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <button class="mobile-nav__close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="shop.html?collection=graphic">Collections</a>
+  <a href="index.html#about">About</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<!-- PRODUCT PAGE -->
+<main class="product-page" id="product-page">
+  <div class="container">
+    <div class="product-layout" id="product-layout">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- YOU MAY ALSO LIKE -->
+    <div style="margin-top: 100px;">
+      <div class="section-header">
+        <div class="section-header__text">
+          <p class="section-header__eyebrow">More From 2G</p>
+          <h2 class="section-header__title">You May Also Like</h2>
+        </div>
+        <a href="shop.html" class="section-header__link">View All</a>
+      </div>
+      <div class="products-grid products-grid--4" id="related-products"></div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">2<span>G</span></div>
+        <p class="footer-brand__tagline">"Operate with Style"</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Shop</h4>
+        <ul class="footer-col__links">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html?category=black">Black Collection</a></li>
+          <li><a href="shop.html?category=white">White Collection</a></li>
+          <li><a href="shop.html?collection=graphic">Graphic Series</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Info</h4>
+        <ul class="footer-col__links">
+          <li><a href="index.html#about">Our Story</a></li>
+          <li><a href="#">Sizing Guide</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Connect</h4>
+        <ul class="footer-col__links">
+          <li><a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 2G Clothing. All rights reserved.</span>
+      <span>South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const productId = parseInt(params.get('id'));
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+      document.getElementById('product-layout').innerHTML = '<p style="padding:80px 0;text-align:center">Product not found. <a href="shop.html" style="text-decoration:underline">Return to shop</a></p>';
+      return;
+    }
+
+    document.title = `${product.name} — 2G Clothing`;
+
+    // Gallery HTML
+    const thumbsHTML = product.images.map((img, i) => `
+      <div class="product-gallery__thumb ${i === 0 ? 'active' : ''}">
+        <img src="${img}" alt="${product.name}" loading="lazy" />
+      </div>
+    `).join('');
+
+    // Sizes HTML
+    const sizesHTML = product.sizes.map(size => `
+      <button class="size-btn" data-size="${size}">${size}</button>
+    `).join('');
+
+    document.getElementById('product-layout').innerHTML = `
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          <img src="${product.images[0]}" alt="${product.name}" />
+        </div>
+        <div class="product-gallery__thumbs">${thumbsHTML}</div>
+      </div>
+
+      <div class="product-info">
+        <p class="product-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="shop.html">Shop</a>
+          <span>/</span>
+          <a href="shop.html?category=${product.category}">${product.category === 'black' ? 'Black Collection' : 'White Collection'}</a>
+          <span>/</span>
+          ${product.name}
+        </p>
+
+        ${product.tag ? `<span class="tag tag--${product.tag}">${product.tag === 'new' ? 'New Arrival' : 'Best Seller'}</span><br><br>` : ''}
+
+        <h1 class="product-name">${product.name}</h1>
+        <p class="product-price"><span class="currency">R </span>${product.price.toFixed(2)}</p>
+
+        <p class="product-description">${product.description}</p>
+
+        <hr class="product-divider" />
+
+        <div class="product-option-label">
+          <span>Select Size</span>
+          <a href="#">Size Guide</a>
+        </div>
+        <div class="size-grid">${sizesHTML}</div>
+
+        <div class="product-add-to-cart">
+          <div class="qty-control">
+            <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+            <input class="qty-input" type="number" value="1" min="1" max="10" aria-label="Quantity" />
+            <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn btn--dark" style="flex:1" id="add-to-cart-btn" data-product-id="${product.id}">
+            Add to Cart
+          </button>
+        </div>
+
+        <a href="cart.html" class="btn btn--outline-dark btn--full" style="margin-bottom:24px">View Cart</a>
+
+        <div class="product-accordion">
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Product Details
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="accordion-content">
+              <p>100% cotton. Unisex fit. Screen printed. True to size. Machine wash cold. Original 2G design.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Shipping & Returns
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Free delivery on orders over R800. Standard delivery 3–5 business days. Returns accepted within 14 days of purchase.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Care Guide
+              <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Turn inside out before washing. Machine wash cold. Do not tumble dry. Iron on low heat, do not iron print. Hang to dry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Related products
+    const related = products.filter(p => p.id !== product.id && (p.category === product.category || p.collection === product.collection)).slice(0, 4);
+    document.getElementById('related-products').innerHTML = related.map(p => `
+      <div class="product-card" onclick="window.location='product.html?id=${p.id}'">
+        <div class="product-card__image-wrap">
+          <img src="${p.images[0]}" alt="${p.name}" loading="lazy" />
+          ${p.tag ? `<span class="tag tag--${p.tag} product-card__tag">${p.tag === 'new' ? 'New' : 'Best Seller'}</span>` : ''}
+          <button class="product-card__quick-add" data-product-id="${p.id}">Quick Add</button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__name">${p.name}</div>
+          <div class="product-card__price"><span class="currency">R</span>${p.price.toFixed(2)}</div>
+        </div>
+      </div>
+    `).join('');
+
+    // Re-init interactions after dynamic render
+    initProductGallery();
+    initSizeSelection();
+    initQtyControl();
+    initAddToCart();
+    initAccordions();
+    initQuickAdd();
+    setTimeout(initScrollReveal, 100);
+  });
+</script>
+</body>
+</html>

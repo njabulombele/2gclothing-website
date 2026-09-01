@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandbox Test Panel — 2G Clothing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a; --white: #fff; --red: #cc0000;
+      --green: #2a9d5c; --orange: #e07800;
+      --gray-100: #f5f5f5; --gray-200: #e5e5e5; --gray-400: #999;
+      --gray-600: #666; --font: 'Inter', sans-serif;
+      --display: 'Bebas Neue', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: #f0f0f0; color: var(--black); }
+
+    .header {
+      background: var(--black); color: var(--white);
+      padding: 20px 32px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .header__logo { font-family: var(--display); font-size: 24px; letter-spacing: 0.06em; }
+    .header__logo span { color: var(--red); }
+    .header__badge {
+      background: var(--orange); color: var(--white);
+      padding: 6px 14px; border-radius: 40px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .header__back { color: rgba(255,255,255,0.5); font-size: 13px; text-decoration: none; }
+    .header__back:hover { color: var(--white); }
+
+    .main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+    .alert {
+      background: #fff8e1; border: 1.5px solid #f59e0b;
+      border-radius: 8px; padding: 16px 20px; margin-bottom: 28px;
+      font-size: 13px; line-height: 1.6; color: #7c5700;
+    }
+    .alert strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--white); border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden;
+    }
+    .card--full { grid-column: 1 / -1; }
+    .card__header {
+      padding: 18px 24px; border-bottom: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card__title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600); }
+    .card__body { padding: 24px; }
+
+    .status-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+      font-size: 14px;
+    }
+    .status-row:last-child { border-bottom: none; }
+    .status-row span:first-child { color: var(--gray-600); }
+    .status-row strong { font-weight: 700; }
+    .badge {
+      padding: 3px 10px; border-radius: 40px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    }
+    .badge--sandbox  { background: #fff3e0; color: var(--orange); }
+    .badge--ok       { background: #e6f7ef; color: var(--green); }
+    .badge--error    { background: #fce8e8; color: var(--red); }
+
+    /* FORM */
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600); margin-bottom: 5px; }
+    input, select {
+      width: 100%; height: 44px; padding: 0 14px;
+      border: 1.5px solid var(--gray-200); border-radius: 6px;
+      font-size: 13px; font-family: var(--font); outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: var(--black); }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 22px; border-radius: 6px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      border: none; transition: all 0.2s; font-family: var(--font);
+    }
+    .btn--dark    { background: var(--black); color: var(--white); }
+    .btn--dark:hover { background: #333; }
+    .btn--green   { background: var(--green); color: var(--white); }
+    .btn--green:hover { background: #228a4d; }
+    .btn--red     { background: var(--red); color: var(--white); }
+    .btn--red:hover { background: #aa0000; }
+    .btn--outline { background: transparent; color: var(--black); border: 1.5px solid var(--gray-200); }
+    .btn--outline:hover { border-color: var(--black); }
+    .btn--full    { width: 100%; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+
+    /* ORDERS TABLE */
+    .orders-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .orders-table th {
+      text-align: left; padding: 10px 14px;
+      background: var(--gray-100); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600);
+    }
+    .orders-table td { padding: 12px 14px; border-top: 1px solid var(--gray-100); vertical-align: middle; }
+    .orders-table tr:hover td { background: #fafafa; }
+    .status-pill {
+      display: inline-block; padding: 3px 10px; border-radius: 40px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .status-pill.paid     { background: #e6f7ef; color: var(--green); }
+    .status-pill.pending  { background: #fff3e0; color: var(--orange); }
+    .status-pill.failed   { background: #fce8e8; color: var(--red); }
+
+    /* LOG */
+    .log {
+      background: #0a0a0a; color: #00ff88; font-family: 'Courier New', monospace;
+      font-size: 12px; padding: 16px; border-radius: 6px;
+      max-height: 240px; overflow-y: auto; line-height: 1.7;
+      white-space: pre-wrap; word-break: break-all;
+    }
+    .log .log-time  { color: rgba(255,255,255,0.3); }
+    .log .log-error { color: #ff6b6b; }
+    .log .log-warn  { color: #ffd93d; }
+    .log .log-ok    { color: #00ff88; }
+
+    /* CARD INFO */
+    .test-card {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      border-radius: 12px; padding: 20px 24px; color: var(--white);
+      margin-bottom: 16px;
+    }
+    .test-card__label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+    .test-card__value { font-family: 'Courier New', monospace; font-size: 18px; letter-spacing: 0.15em; margin-bottom: 4px; }
+    .test-card__row { display: flex; gap: 32px; margin-top: 12px; }
+    .copy-btn {
+      background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.6);
+      padding: 4px 10px; border-radius: 4px; font-size: 11px; cursor: pointer;
+      font-family: var(--font); transition: all 0.2s; margin-left: 8px;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); color: var(--white); }
+
+    .empty-state { text-align: center; padding: 32px; color: var(--gray-400); font-size: 13px; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: var(--white); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header__logo">2<span>G</span> <span style="font-size:14px;font-family:var(--font);font-weight:600;color:rgba(255,255,255,0.5);margin-left:8px">Sandbox Test Panel</span></div>
+  <span class="header__badge">⚠ Sandbox Mode — No Real Money</span>
+  <a href="index.html" class="header__back">← Back to site</a>
+</div>
+
+<div class="main">
+
+  <div class="alert">
+    <strong>🧪 Developer Test Panel</strong>
+    This page only works when the server is running (<code>npm start</code>) and <code>NODE_ENV=development</code>.
+    All payments here use PayFast Sandbox — no real money moves. Delete or restrict this page before going live.
+  </div>
+
+  <div class="grid">
+
+    <!-- SERVER STATUS -->
+    <div class="card">
+      <div class="card__header">
+        <span class="card__title">Server Status</span>
+        <button class="btn btn--outline btn--sm" onclick="checkHealth()" style="padding:6px 14px;font-size:11px">Refresh</button>
+      </div>
+      <div class="card__body" id="health-body">
+        <div class="status-row"><span>Server</span><span class="badge badge--error" id="status-server">Checking...</span></div>
+        <div class="status-row"><span>Mode</span><strong id="status-mode">—</strong></div>
+        <div class="status-row"><span>Merchant ID</span><strong id="status-merchant">—</strong></div>
+        <div class="status-row"><span>PayFast URL</span><strong id="status-pfurl">—</strong></div>
+        <div class="status-row"><span>Site URL</span><strong id="status-siteurl">—</strong></div>
+      </div>
+    </div>
+
+    <!-- TEST CARD DETAILS -->
+    <div class="card">
+      <div class="card__header"><span class="card__title">PayFast Sandbox Card Details</span></div>
+      <div class="card__body">
+        <div class="test-card">
+          <div class="test-card__label">Card Number</div>
+          <div class="test-card__value">4000 0000 0000 0002 <button class="copy-btn" onclick="copyText('4000000000000002', this)">Copy</button></div>
+          <div class="test-card__row">
+            <div>
+              <div class="test-card__label">Expiry</div>
+              <div style="font-size:14px;font-family:'Courier New',monospace">12 / 26</div>
+            </div>
+            <div>
+              <div class="test-card__label">CVV</div>
+              <div style="font-size:14px;font-family:'Courier New',monospace">123</div>
+            </div>
+            <div>
+              <div class="test-card__label">OTP</div>
+              <div style="font-size:14px;font-family:'Courier New',monospace">111111</div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--gray-400);line-height:1.6">Use these details on the PayFast sandbox payment page. When asked for OTP/3D Secure, enter <strong>111111</strong>.</p>
+      </div>
+    </div>
+
+    <!-- QUICK PAYMENT TEST -->
+    <div class="card">
+      <div class="card__header"><span class="card__title">Create Test Payment</span></div>
+      <div class="card__body">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="t-first" value="Test" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="t-last" value="Customer" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="t-email" value="sbtu01@payfast.co.za" />
+        </div>
+        <div class="form-group">
+          <label>Product & Price (R)</label>
+          <div style="display:flex;gap:8px">
+            <input type="text" id="t-product" value="2G Original Black Tee (M)" style="flex:1" />
+            <input type="number" id="t-amount" value="350" style="width:90px" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Shipping</label>
+          <select id="t-shipping">
+            <option value="standard">Standard — R99</option>
+            <option value="express">Express — R180</option>
+          </select>
+        </div>
+        <button class="btn btn--dark btn--full" onclick="createTestPayment()" id="pay-btn">
+          Launch PayFast Sandbox Payment
+        </button>
+        <p style="font-size:11px;color:var(--gray-400);margin-top:10px;text-align:center">Opens PayFast sandbox in a new tab</p>
+      </div>
+    </div>
+
+    <!-- MANUAL ORDER CONFIRM -->
+    <div class="card">
+      <div class="card__header"><span class="card__title">Manually Confirm Order</span></div>
+      <div class="card__body">
+        <p style="font-size:13px;color:var(--gray-600);margin-bottom:16px;line-height:1.6">
+          Because PayFast sandbox cannot call back to <code>localhost</code>, use this to simulate a successful payment notification and test the confirmation page.
+        </p>
+        <div class="form-group">
+          <label>Order ID</label>
+          <input type="text" id="confirm-order-id" placeholder="ORD-1234567890123" />
+        </div>
+        <div class="btn-group">
+          <button class="btn btn--green" onclick="confirmOrder()" style="flex:1">Mark as Paid ✓</button>
+          <button class="btn btn--outline" onclick="openConfirmPage()" style="flex:1">Open Confirmation Page</button>
+        </div>
+        <div id="confirm-result" style="margin-top:12px;font-size:13px;display:none"></div>
+      </div>
+    </div>
+
+    <!-- ORDERS TABLE -->
+    <div class="card card--full">
+      <div class="card__header">
+        <span class="card__title">Orders <span id="order-count" style="color:var(--gray-400);font-weight:400">(loading...)</span></span>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn--outline" onclick="loadOrders()" style="padding:6px 14px;font-size:11px">Refresh</button>
+          <button class="btn btn--red" onclick="resetOrders()" style="padding:6px 14px;font-size:11px">Clear All</button>
+        </div>
+      </div>
+      <div class="card__body" style="padding:0">
+        <div id="orders-table-wrap">
+          <div class="empty-state">Loading orders...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY LOG -->
+    <div class="card card--full">
+      <div class="card__header">
+        <span class="card__title">Activity Log</span>
+        <button class="btn btn--outline" onclick="clearLog()" style="padding:6px 14px;font-size:11px">Clear</button>
+      </div>
+      <div class="card__body" style="padding:12px">
+        <div class="log" id="activity-log">Waiting for activity...\n</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── LOG ──────────────────────────────────────────────────────
+  function log(msg, type = 'ok') {
+    const el   = document.getElementById('activity-log');
+    const time = new Date().toLocaleTimeString();
+    el.innerHTML += `<span class="log-time">[${time}]</span> <span class="log-${type}">${msg}</span>\n`;
+    el.scrollTop = el.scrollHeight;
+  }
+  function clearLog() {
+    document.getElementById('activity-log').textContent = 'Log cleared.\n';
+  }
+
+  // ── COPY ─────────────────────────────────────────────────────
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  }
+
+  // ── HEALTH CHECK ─────────────────────────────────────────────
+  async function checkHealth() {
+    try {
+      const res  = await fetch('/api/health');
+      const data = await res.json();
+      document.getElementById('status-server').textContent  = 'Online ✓';
+      document.getElementById('status-server').className    = 'badge badge--ok';
+      document.getElementById('status-mode').textContent    = data.mode === 'sandbox' ? '🧪 Sandbox (testing)' : '🟢 Production (live)';
+      document.getElementById('status-merchant').textContent = data.merchant;
+      document.getElementById('status-pfurl').textContent   = data.mode === 'sandbox' ? 'sandbox.payfast.co.za' : 'www.payfast.co.za';
+      document.getElementById('status-siteurl').textContent = data.siteUrl || window.location.origin;
+      log('Health check OK — server is running in ' + data.mode + ' mode');
+    } catch (e) {
+      document.getElementById('status-server').textContent = 'Offline ✗';
+      document.getElementById('status-server').className   = 'badge badge--error';
+      log('Server is offline — run: npm start', 'error');
+    }
+  }
+
+  // ── CREATE TEST PAYMENT ───────────────────────────────────────
+  async function createTestPayment() {
+    const btn = document.getElementById('pay-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Creating...';
+
+    const productName = document.getElementById('t-product').value.trim() || '2G Tee';
+    const amount      = parseFloat(document.getElementById('t-amount').value) || 350;
+    const shipping    = document.getElementById('t-shipping').value;
+    const firstName   = document.getElementById('t-first').value.trim() || 'Test';
+    const lastName    = document.getElementById('t-last').value.trim() || 'Customer';
+    const email       = document.getElementById('t-email').value.trim() || 'sbtu01@payfast.co.za';
+
+    const payload = {
+      customer: {
+        firstName, lastName, email,
+        phone:     '+27831234567',
+        address:   '1 Test Street',
+        apartment: '',
+        city:      'Cape Town',
+        province:  'Western Cape',
+        postal:    '8001',
+      },
+      cart: [{
+        id:    1,
+        name:  productName,
+        price: amount,
+        qty:   1,
+        size:  'M',
+        image: 'images/p1.jpeg',
+      }],
+      shipping,
+      discount: 0,
+    };
+
+    try {
+      const res  = await fetch('/api/create-payment', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Server error');
+
+      // Auto-fill the confirm order ID field
+      document.getElementById('confirm-order-id').value = data.orderId;
+      localStorage.setItem('2g-pending-order', data.orderId);
+
+      log(`Order created: ${data.orderId} — Total: R${payload.cart[0].price + (shipping === 'express' ? 180 : 99)}`);
+      log('Opening PayFast sandbox in new tab...');
+
+      // Build and submit form to PayFast in new tab
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = data.payfast_url;
+      form.target = '_blank';
+      form.style.display = 'none';
+      Object.entries(data.data).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden'; input.name = key; input.value = value;
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      await loadOrders();
+
+    } catch (err) {
+      log('Error creating payment: ' + err.message, 'error');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Launch PayFast Sandbox Payment';
+  }
+
+  // ── MANUALLY CONFIRM ORDER ────────────────────────────────────
+  async function confirmOrder() {
+    const orderId = document.getElementById('confirm-order-id').value.trim();
+    if (!orderId) { log('Enter an Order ID first', 'warn'); return; }
+
+    try {
+      const res  = await fetch(`/api/sandbox/confirm/${orderId}`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      const el = document.getElementById('confirm-result');
+      el.style.display = 'block';
+      el.innerHTML = `<span style="color:var(--green);font-weight:700">✓ Order ${orderId} marked as paid — R${data.order.total.toFixed(2)}</span>`;
+      log(`Order ${orderId} manually confirmed as PAID`, 'ok');
+      await loadOrders();
+    } catch (err) {
+      log('Confirm error: ' + err.message, 'error');
+    }
+  }
+
+  function openConfirmPage() {
+    const orderId = document.getElementById('confirm-order-id').value.trim();
+    if (!orderId) { log('Enter an Order ID first', 'warn'); return; }
+    window.open(`order-confirmation.html?order=${orderId}`, '_blank');
+  }
+
+  // ── LOAD ORDERS TABLE ─────────────────────────────────────────
+  async function loadOrders() {
+    try {
+      const res  = await fetch('/api/sandbox/orders');
+      const data = await res.json();
+      document.getElementById('order-count').textContent = `(${data.count})`;
+
+      const wrap = document.getElementById('orders-table-wrap');
+      if (!data.orders.length) {
+        wrap.innerHTML = '<div class="empty-state">No orders yet. Create a test payment above.</div>';
+        return;
+      }
+
+      wrap.innerHTML = `
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.orders.map(o => `
+              <tr>
+                <td><code style="font-size:12px">${o.id}</code></td>
+                <td>${o.customer}</td>
+                <td>${o.items} item(s)</td>
+                <td><strong>R ${Number(o.total).toFixed(2)}</strong></td>
+                <td><span class="status-pill ${o.status}">${o.status}</span></td>
+                <td style="color:var(--gray-400);font-size:12px">${new Date(o.createdAt).toLocaleTimeString()}</td>
+                <td>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn--green" style="padding:5px 10px;font-size:10px"
+                      onclick="document.getElementById('confirm-order-id').value='${o.id}';confirmOrder()">
+                      Confirm
+                    </button>
+                    <button class="btn btn--outline" style="padding:5px 10px;font-size:10px"
+                      onclick="window.open('order-confirmation.html?order=${o.id}','_blank')">
+                      View
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    } catch (e) {
+      document.getElementById('orders-table-wrap').innerHTML =
+        '<div class="empty-state">Server offline — run npm start</div>';
+    }
+  }
+
+  // ── RESET ORDERS ──────────────────────────────────────────────
+  async function resetOrders() {
+    if (!confirm('Clear all test orders?')) return;
+    try {
+      await fetch('/api/sandbox/reset', { method: 'POST' });
+      log('All orders cleared', 'warn');
+      await loadOrders();
+    } catch (e) {
+      log('Reset error: ' + e.message, 'error');
+    }
+  }
+
+  // ── INIT ─────────────────────────────────────────────────────
+  checkHealth();
+  loadOrders();
+  // Auto-refresh orders every 5 seconds
+  setInterval(loadOrders, 5000);
+</script>
+</body>
+</html>

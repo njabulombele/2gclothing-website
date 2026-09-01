@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — 2G Clothing</title>
+  <meta name="description" content="Secure checkout — 2G Clothing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="checkout-body">
+
+<!-- CHECKOUT HEADER -->
+<header class="checkout-header">
+  <a href="index.html" class="checkout-header__logo">2<span>G</span></a>
+  <div class="checkout-header__steps">
+    <span class="step active">Cart</span>
+    <span class="step-arrow">›</span>
+    <span class="step active">Information</span>
+    <span class="step-arrow">›</span>
+    <span class="step active current">Payment</span>
+    <span class="step-arrow">›</span>
+    <span class="step">Confirmation</span>
+  </div>
+  <a href="cart.html" class="checkout-header__back">← Back to cart</a>
+</header>
+
+<!-- CHECKOUT BODY -->
+<main class="checkout-main">
+  <div class="checkout-layout">
+
+    <!-- LEFT — FORMS -->
+    <div class="checkout-forms">
+
+      <!-- CONTACT -->
+      <section class="checkout-section">
+        <h2 class="checkout-section__title">Contact Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-group">
+            <label class="form-label" for="first-name">First name</label>
+            <input class="form-input" type="text" id="first-name" name="first-name" placeholder="Njabulo" autocomplete="given-name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="last-name">Last name</label>
+            <input class="form-input" type="text" id="last-name" name="last-name" placeholder="Dlamini" autocomplete="family-name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+27 00 000 0000" autocomplete="tel" required />
+          </div>
+        </div>
+      </section>
+
+      <!-- SHIPPING -->
+      <section class="checkout-section">
+        <h2 class="checkout-section__title">Shipping Address</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="address">Street address</label>
+            <input class="form-input" type="text" id="address" name="address" placeholder="123 Main Street" autocomplete="street-address" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="apartment">Apartment, suite, etc. <span class="form-label--optional">(optional)</span></label>
+            <input class="form-input" type="text" id="apartment" name="apartment" placeholder="Apt 4B" autocomplete="address-line2" />
+          </div>
+        </div>
+        <div class="form-row form-row--3">
+          <div class="form-group">
+            <label class="form-label" for="city">City</label>
+            <input class="form-input" type="text" id="city" name="city" placeholder="Johannesburg" autocomplete="address-level2" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="province">Province</label>
+            <select class="form-input form-select" id="province" name="province" autocomplete="address-level1" required>
+              <option value="" disabled selected>Select province</option>
+              <option>Gauteng</option>
+              <option>KwaZulu-Natal</option>
+              <option>Western Cape</option>
+              <option>Eastern Cape</option>
+              <option>Limpopo</option>
+              <option>Mpumalanga</option>
+              <option>North West</option>
+              <option>Free State</option>
+              <option>Northern Cape</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="postal">Postal code</label>
+            <input class="form-input" type="text" id="postal" name="postal" placeholder="2000" autocomplete="postal-code" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="country">Country</label>
+            <input class="form-input" type="text" id="country" name="country" value="South Africa" readonly />
+          </div>
+        </div>
+
+        <!-- SHIPPING METHOD -->
+        <h3 class="checkout-subsection__title">Shipping Method</h3>
+        <div class="shipping-options">
+          <label class="shipping-option">
+            <input type="radio" name="shipping" value="standard" checked />
+            <div class="shipping-option__content">
+              <span class="shipping-option__name">Standard Delivery</span>
+              <span class="shipping-option__desc">3–5 business days</span>
+            </div>
+            <span class="shipping-option__price" id="shipping-standard-price">R99.00</span>
+          </label>
+          <label class="shipping-option">
+            <input type="radio" name="shipping" value="express" />
+            <div class="shipping-option__content">
+              <span class="shipping-option__name">Express Delivery</span>
+              <span class="shipping-option__desc">1–2 business days</span>
+            </div>
+            <span class="shipping-option__price">R180.00</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- PAYMENT -->
+      <section class="checkout-section">
+        <h2 class="checkout-section__title">
+          Payment
+          <span class="checkout-section__secure">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure &amp; Encrypted
+          </span>
+        </h2>
+
+        <!-- PAYMENT METHOD TABS -->
+        <div class="payment-tabs">
+          <button class="payment-tab active" data-tab="card">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Credit / Debit Card
+          </button>
+          <button class="payment-tab" data-tab="eft">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            EFT / Bank Transfer
+          </button>
+        </div>
+
+        <!-- CARD FORM -->
+        <div class="payment-panel" id="panel-card">
+          <div class="card-preview" id="card-preview">
+            <div class="card-preview__front">
+              <div class="card-preview__logo">2<span>G</span></div>
+              <div class="card-preview__chip">
+                <svg viewBox="0 0 40 30" width="40" height="30">
+                  <rect width="40" height="30" rx="4" fill="#c8a951"/>
+                  <line x1="0" y1="10" x2="40" y2="10" stroke="#a88830" stroke-width="1"/>
+                  <line x1="0" y1="20" x2="40" y2="20" stroke="#a88830" stroke-width="1"/>
+                  <line x1="13" y1="0" x2="13" y2="30" stroke="#a88830" stroke-width="1"/>
+                  <line x1="27" y1="0" x2="27" y2="30" stroke="#a88830" stroke-width="1"/>
+                </svg>
+              </div>
+              <div class="card-preview__number" id="preview-number">•••• •••• •••• ••••</div>
+              <div class="card-preview__footer">
+                <div>
+                  <div class="card-preview__label">Card Holder</div>
+                  <div class="card-preview__value" id="preview-name">FULL NAME</div>
+                </div>
+                <div>
+                  <div class="card-preview__label">Expires</div>
+                  <div class="card-preview__value" id="preview-expiry">MM/YY</div>
+                </div>
+                <div class="card-preview__network" id="preview-network"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="card-number">Card number</label>
+              <div class="input-icon-wrap">
+                <input class="form-input" type="text" id="card-number" name="card-number"
+                  placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number"
+                  inputmode="numeric" required />
+                <span class="input-icon" id="card-type-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="#ccc" fill="none" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="card-name">Name on card</label>
+              <input class="form-input" type="text" id="card-name" name="card-name"
+                placeholder="NJABULO DLAMINI" autocomplete="cc-name" required />
+            </div>
+          </div>
+          <div class="form-row form-row--2">
+            <div class="form-group">
+              <label class="form-label" for="card-expiry">Expiry date</label>
+              <input class="form-input" type="text" id="card-expiry" name="card-expiry"
+                placeholder="MM / YY" maxlength="7" autocomplete="cc-exp" inputmode="numeric" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="card-cvv">
+                CVV
+                <span class="cvv-hint" title="3-digit code on the back of your card (4 digits for Amex)">?</span>
+              </label>
+              <div class="input-icon-wrap">
+                <input class="form-input" type="password" id="card-cvv" name="card-cvv"
+                  placeholder="•••" maxlength="4" autocomplete="cc-csc" inputmode="numeric" required />
+                <span class="input-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="#ccc" fill="none" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACCEPTED CARDS -->
+          <div class="accepted-cards">
+            <span class="accepted-cards__label">We accept:</span>
+            <div class="card-badge visa">VISA</div>
+            <div class="card-badge mastercard">MC</div>
+            <div class="card-badge amex">AMEX</div>
+          </div>
+        </div>
+
+        <!-- EFT PANEL -->
+        <div class="payment-panel hidden" id="panel-eft">
+          <div class="eft-info">
+            <div class="eft-info__icon">🏦</div>
+            <h3 class="eft-info__title">Bank Transfer Details</h3>
+            <p class="eft-info__desc">Make a direct EFT to the account below. Use your order number as the reference. Your order will be processed once payment is confirmed.</p>
+            <div class="eft-details">
+              <div class="eft-row"><span>Bank</span><strong>FNB / Standard / Capitec</strong></div>
+              <div class="eft-row"><span>Account Name</span><strong>2G Clothing</strong></div>
+              <div class="eft-row"><span>Account Number</span><strong>— provided on confirmation —</strong></div>
+              <div class="eft-row"><span>Branch Code</span><strong>— provided on confirmation —</strong></div>
+              <div class="eft-row"><span>Reference</span><strong>Your order number</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BILLING ADDRESS -->
+        <div class="billing-same">
+          <label class="checkbox-label">
+            <input type="checkbox" id="billing-same" checked />
+            <span class="checkbox-box"></span>
+            Billing address same as shipping address
+          </label>
+        </div>
+      </section>
+
+      <!-- PLACE ORDER -->
+      <button class="btn-place-order" id="place-order-btn" type="button">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Place Order &nbsp;·&nbsp; <span id="btn-total">R0.00</span>
+      </button>
+      <p class="place-order__note">
+        By placing your order you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <!-- RIGHT — ORDER SUMMARY -->
+    <aside class="checkout-summary">
+      <button class="summary-toggle" id="summary-toggle">
+        <span>
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Order Summary
+        </span>
+        <span id="summary-toggle-total">R0.00 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" class="toggle-chevron"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+
+      <div class="summary-body" id="summary-body">
+        <div class="summary-items" id="summary-items"></div>
+
+        <div class="summary-coupon">
+          <input class="form-input" type="text" id="coupon-input" placeholder="Discount code" />
+          <button class="btn-apply-coupon" id="apply-coupon">Apply</button>
+        </div>
+
+        <div class="summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="checkout-subtotal">R0.00</span>
+          </div>
+          <div class="summary-row" id="discount-row" style="display:none; color: var(--red)">
+            <span>Discount</span>
+            <span id="checkout-discount">−R0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="checkout-shipping">R99.00</span>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Total</span>
+            <span id="checkout-total">R0.00</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- PROCESSING OVERLAY -->
+<div class="processing-overlay" id="processing-overlay">
+  <div class="processing-card">
+    <div class="processing-spinner"></div>
+    <h3 class="processing-title">Processing your order...</h3>
+    <p class="processing-sub">Please do not close this window.</p>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // ─── LOAD CART INTO SUMMARY ───────────────────────────────────
+  function loadSummary() {
+    const items = document.getElementById('summary-items');
+    if (!cart.length) { window.location.href = 'cart.html'; return; }
+    items.innerHTML = cart.map(item => `
+      <div class="summary-item">
+        <div class="summary-item__image-wrap">
+          <img src="${item.image}" alt="${item.name}" />
+          <span class="summary-item__qty">${item.qty}</span>
+        </div>
+        <div class="summary-item__info">
+          <div class="summary-item__name">${item.name}</div>
+          <div class="summary-item__meta">Size: ${item.size}</div>
+        </div>
+        <div class="summary-item__price">R ${(item.price * item.qty).toFixed(2)}</div>
+      </div>
+    `).join('');
+    updateTotals();
+  }
+
+  let discountAmount = 0;
+
+  function getShippingCost() {
+    const method = document.querySelector('input[name="shipping"]:checked')?.value;
+    const subtotal = getCartTotal();
+    if (method === 'express') return 180;
+    return subtotal >= 800 ? 0 : 99;
+  }
+
+  function updateTotals() {
+    const subtotal  = getCartTotal();
+    const shipping  = getShippingCost();
+    const total     = subtotal - discountAmount + shipping;
+    document.getElementById('checkout-subtotal').textContent     = `R ${subtotal.toFixed(2)}`;
+    document.getElementById('checkout-shipping').textContent     = shipping === 0 ? 'FREE' : `R ${shipping.toFixed(2)}`;
+    document.getElementById('checkout-total').textContent        = `R ${total.toFixed(2)}`;
+    document.getElementById('btn-total').textContent             = `R ${total.toFixed(2)}`;
+    document.getElementById('summary-toggle-total').innerHTML    = `R ${total.toFixed(2)} <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" class="toggle-chevron"><polyline points="6 9 12 15 18 9"/></svg>`;
+    const standardLabel = document.getElementById('shipping-standard-price');
+    if (standardLabel) standardLabel.textContent = subtotal >= 800 ? 'FREE' : 'R99.00';
+  }
+
+  // ─── CARD PREVIEW FORMATTING ──────────────────────────────────
+  document.getElementById('card-number').addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '').slice(0, 16);
+    this.value = val.replace(/(.{4})/g, '$1 ').trim();
+    document.getElementById('preview-number').textContent =
+      val.padEnd(16, '•').replace(/(.{4})/g, '$1 ').trim();
+    const icon = document.getElementById('preview-network');
+    if (/^4/.test(val))       icon.textContent = 'VISA';
+    else if (/^5[1-5]/.test(val)) icon.textContent = 'MC';
+    else if (/^3[47]/.test(val))  icon.textContent = 'AMEX';
+    else icon.textContent = '';
+  });
+
+  document.getElementById('card-name').addEventListener('input', function () {
+    document.getElementById('preview-name').textContent = this.value.toUpperCase() || 'FULL NAME';
+  });
+
+  document.getElementById('card-expiry').addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '').slice(0, 4);
+    if (val.length >= 2) val = val.slice(0, 2) + ' / ' + val.slice(2);
+    this.value = val;
+    document.getElementById('preview-expiry').textContent = val || 'MM/YY';
+  });
+
+  // ─── PAYMENT TABS ─────────────────────────────────────────────
+  document.querySelectorAll('.payment-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.payment-panel').forEach(p => p.classList.add('hidden'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.remove('hidden');
+    });
+  });
+
+  // ─── SHIPPING CHANGE ──────────────────────────────────────────
+  document.querySelectorAll('input[name="shipping"]').forEach(r => r.addEventListener('change', updateTotals));
+
+  // ─── COUPON ───────────────────────────────────────────────────
+  const COUPONS = { 'TWOGEE10': 0.10, 'STYLE20': 0.20 };
+  document.getElementById('apply-coupon').addEventListener('click', () => {
+    const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+    if (COUPONS[code] !== undefined) {
+      discountAmount = Math.round(getCartTotal() * COUPONS[code]);
+      document.getElementById('discount-row').style.display = 'flex';
+      document.getElementById('checkout-discount').textContent = `−R ${discountAmount.toFixed(2)}`;
+      updateTotals();
+      showToast(`Coupon applied! You saved R${discountAmount.toFixed(2)}`);
+    } else {
+      showToast('Invalid coupon code');
+    }
+  });
+
+  // ─── MOBILE SUMMARY TOGGLE ────────────────────────────────────
+  document.getElementById('summary-toggle').addEventListener('click', () => {
+    const body    = document.getElementById('summary-body');
+    const chevron = document.querySelector('.toggle-chevron');
+    body.classList.toggle('open');
+    chevron.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+  });
+
+  // ─── FORM VALIDATION ──────────────────────────────────────────
+  function validateForm() {
+    const required = ['email','first-name','last-name','phone','address','city','province','postal'];
+    for (const id of required) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.classList.add('input-error');
+        el.focus();
+        showToast('Please fill in all required fields');
+        return false;
+      }
+      el.classList.remove('input-error');
+    }
+    // Card fields only required if card tab is active
+    const activeTab = document.querySelector('.payment-tab.active').dataset.tab;
+    if (activeTab === 'card') {
+      for (const id of ['card-number','card-name','card-expiry','card-cvv']) {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.classList.add('input-error');
+          el.focus();
+          showToast('Please fill in your card details');
+          return false;
+        }
+        el.classList.remove('input-error');
+      }
+      if (document.getElementById('card-number').value.replace(/\s/g,'').length < 16) {
+        showToast('Please enter a valid 16-digit card number');
+        document.getElementById('card-number').classList.add('input-error');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // ─── PLACE ORDER — REAL PAYFAST SUBMISSION ────────────────────
+  document.getElementById('place-order-btn').addEventListener('click', async () => {
+    if (!validateForm()) return;
+
+    // Show processing overlay immediately
+    document.getElementById('processing-overlay').classList.add('visible');
+    document.querySelector('.processing-title').textContent = 'Creating your order...';
+
+    try {
+      // Build payload for server
+      const payload = {
+        customer: {
+          firstName: document.getElementById('first-name').value.trim(),
+          lastName:  document.getElementById('last-name').value.trim(),
+          email:     document.getElementById('email').value.trim(),
+          phone:     document.getElementById('phone').value.trim(),
+          address:   document.getElementById('address').value.trim(),
+          apartment: document.getElementById('apartment').value.trim(),
+          city:      document.getElementById('city').value.trim(),
+          province:  document.getElementById('province').value,
+          postal:    document.getElementById('postal').value.trim(),
+        },
+        cart:     cart,
+        shipping: document.querySelector('input[name="shipping"]:checked')?.value || 'standard',
+        discount: discountAmount,
+      };
+
+      // POST to server — server calculates totals, builds PayFast signature
+      const response = await fetch('/api/create-payment', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.error || 'Server error');
+      }
+
+      const { payfast_url, data, orderId } = await response.json();
+
+      // Store order ID so confirmation page can look it up
+      localStorage.setItem('2g-pending-order', orderId);
+
+      // Clear cart now — PayFast takes over from here
+      cart = [];
+      saveCart();
+
+      // Build a hidden form and submit it to PayFast
+      // This is the correct way to redirect to PayFast (POST form, not a link)
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = payfast_url;
+      form.style.display = 'none';
+
+      Object.entries(data).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = key;
+        input.value = value;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      document.querySelector('.processing-title').textContent = 'Redirecting to secure payment...';
+      form.submit(); // → PayFast takes over
+
+    } catch (err) {
+      console.error('Payment error:', err);
+      document.getElementById('processing-overlay').classList.remove('visible');
+      showToast('Payment failed: ' + err.message + '. Please try again.');
+    }
+  });
+
+  // ─── CLEAR INPUT ERRORS ON FOCUS ─────────────────────────────
+  document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('focus', () => input.classList.remove('input-error'));
+  });
+
+  // ─── INIT ─────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', loadSummary);
+</script>
+</body>
+</html>

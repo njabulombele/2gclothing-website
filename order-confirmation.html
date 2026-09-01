@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — 2G Clothing</title>
+  <meta name="description" content="Your order has been placed — 2G Clothing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+  <style>
+    /* ---- CONFIRMATION PAGE STYLES ---- */
+    .confirmation-page {
+      min-height: 100vh;
+      background: #f7f7f7;
+      padding-bottom: 80px;
+    }
+
+    /* Success hero */
+    .confirm-hero {
+      background: var(--black);
+      padding: 64px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .confirm-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(204,0,0,0.08);
+      pointer-events: none;
+    }
+    .confirm-checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #2a9d5c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popIn {
+      0%   { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .confirm-checkmark svg {
+      width: 36px;
+      height: 36px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 3;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck 0.4s ease 0.4s forwards;
+    }
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+    .confirm-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 72px);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .confirm-hero__sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    .confirm-order-id {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+    .confirm-order-id span { color: var(--red); }
+
+    /* Content area */
+    .confirm-content {
+      max-width: 800px;
+      margin: -32px auto 0;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Cards */
+    .confirm-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+      overflow: hidden;
+      animation: slideUp 0.4s ease forwards;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .confirm-card:nth-child(1) { animation-delay: 0.1s; }
+    .confirm-card:nth-child(2) { animation-delay: 0.2s; }
+    .confirm-card:nth-child(3) { animation-delay: 0.3s; }
+    .confirm-card:nth-child(4) { animation-delay: 0.4s; }
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .confirm-card__header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .confirm-card__title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+    }
+    .confirm-card__badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 40px;
+    }
+    .badge--success { background: #e6f7ef; color: #2a9d5c; }
+    .badge--pending { background: #fff3e0; color: #e07800; }
+    .confirm-card__body { padding: 28px; }
+
+    /* Order items */
+    .confirm-items { display: flex; flex-direction: column; gap: 16px; }
+    .confirm-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .confirm-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .confirm-item__img {
+      width: 68px;
+      height: 84px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--gray-100);
+      flex-shrink: 0;
+      position: relative;
+    }
+    .confirm-item__img img { width: 100%; height: 100%; object-fit: cover; }
+    .confirm-item__qty {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .confirm-item__info { flex: 1; }
+    .confirm-item__name { font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+    .confirm-item__meta { font-size: 12px; color: var(--gray-400); }
+    .confirm-item__price { font-size: 14px; font-weight: 700; }
+
+    /* Totals */
+    .confirm-totals {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-200);
+    }
+    .confirm-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+    .confirm-total-row--grand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      padding-top: 12px;
+      border-top: 1px solid var(--gray-200);
+      margin-top: 4px;
+    }
+
+    /* Delivery info */
+    .delivery-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .delivery-block__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+    .delivery-block__value {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* What's next */
+    .whats-next {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .next-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .next-step__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .next-step__title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .next-step__desc {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* CTA buttons */
+    .confirm-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .confirm-actions .btn { flex: 1; min-width: 180px; justify-content: center; }
+
+    /* Social follow */
+    .confirm-social {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 32px 28px;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 20px;
+      animation: slideUp 0.4s ease 0.5s forwards;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .confirm-social__title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .confirm-social__sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .confirm-social__links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .confirm-social__links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .confirm-social__links a:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+    .confirm-social__links svg { stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    @media (max-width: 600px) {
+      .delivery-info { grid-template-columns: 1fr; }
+      .confirm-actions { flex-direction: column; }
+      .confirm-card__body { padding: 20px; }
+      .confirm-card__header { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body class="confirmation-page">
+
+<!-- CHECKOUT HEADER -->
+<header class="checkout-header">
+  <a href="index.html" class="checkout-header__logo">2<span>G</span></a>
+  <div class="checkout-header__steps">
+    <span class="step active">Cart</span>
+    <span class="step-arrow">›</span>
+    <span class="step active">Information</span>
+    <span class="step-arrow">›</span>
+    <span class="step active">Payment</span>
+    <span class="step-arrow">›</span>
+    <span class="step active current">Confirmation</span>
+  </div>
+  <a href="shop.html" class="checkout-header__back">Continue Shopping</a>
+</header>
+
+<!-- SUCCESS HERO -->
+<div class="confirm-hero">
+  <div class="confirm-checkmark">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h1 class="confirm-hero__title">ORDER CONFIRMED</h1>
+  <p class="confirm-hero__sub">Thank you for shopping with 2G Clothing. Your order has been received and is being processed.</p>
+  <div class="confirm-order-id">Order <span id="order-id">#ORD-000000</span></div>
+  <p id="confirm-status-msg" style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:16px;letter-spacing:0.06em;">Verifying your payment...</p>
+</div>
+
+<!-- CONFIRMATION CONTENT -->
+<div class="confirm-content">
+
+  <!-- ORDER ITEMS -->
+  <div class="confirm-card">
+    <div class="confirm-card__header">
+      <span class="confirm-card__title">Your Items</span>
+      <span class="confirm-card__badge badge--success">Confirmed</span>
+    </div>
+    <div class="confirm-card__body">
+      <div class="confirm-items" id="confirm-items"></div>
+      <div class="confirm-totals" id="confirm-totals"></div>
+    </div>
+  </div>
+
+  <!-- DELIVERY DETAILS -->
+  <div class="confirm-card">
+    <div class="confirm-card__header">
+      <span class="confirm-card__title">Delivery Details</span>
+      <span class="confirm-card__badge badge--pending">Processing</span>
+    </div>
+    <div class="confirm-card__body">
+      <div class="delivery-info">
+        <div class="delivery-block">
+          <div class="delivery-block__label">Ship To</div>
+          <div class="delivery-block__value" id="confirm-address">—</div>
+        </div>
+        <div class="delivery-block">
+          <div class="delivery-block__label">Contact</div>
+          <div class="delivery-block__value" id="confirm-contact">—</div>
+        </div>
+        <div class="delivery-block">
+          <div class="delivery-block__label">Estimated Delivery</div>
+          <div class="delivery-block__value" id="confirm-delivery-date">3–5 Business Days</div>
+        </div>
+        <div class="delivery-block">
+          <div class="delivery-block__label">Confirmation sent to</div>
+          <div class="delivery-block__value" id="confirm-email">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <div class="confirm-card">
+    <div class="confirm-card__header">
+      <span class="confirm-card__title">What Happens Next</span>
+    </div>
+    <div class="confirm-card__body">
+      <div class="whats-next">
+        <div class="next-step">
+          <div class="next-step__icon">📦</div>
+          <div>
+            <div class="next-step__title">Order Processing</div>
+            <div class="next-step__desc">We're preparing your order. This usually takes 1 business day.</div>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="next-step__icon">🚚</div>
+          <div>
+            <div class="next-step__title">Shipped</div>
+            <div class="next-step__desc">Once your order leaves our facility you'll receive tracking information via email.</div>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="next-step__icon">✅</div>
+          <div>
+            <div class="next-step__title">Delivered</div>
+            <div class="next-step__desc">Your 2G order arrives at your door. Operate with Style.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="confirm-card">
+    <div class="confirm-card__body">
+      <div class="confirm-actions">
+        <a href="shop.html" class="btn btn--dark">Continue Shopping</a>
+        <a href="index.html" class="btn btn--outline-dark">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL FOLLOW -->
+  <div class="confirm-social">
+    <div class="confirm-social__title">JOIN THE MOVEMENT</div>
+    <p class="confirm-social__sub">Tag us in your fit &amp; get featured on our page</p>
+    <div class="confirm-social__links">
+      <a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @2gcl.othing
+      </a>
+      <a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        @2gclothing
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    // PayFast returns the order ID in the URL: /order-confirmation.html?order=ORD-xxxxx
+    const params  = new URLSearchParams(window.location.search);
+    const orderId = params.get('order') || localStorage.getItem('2g-pending-order');
+
+    if (!orderId) {
+      window.location.href = 'index.html';
+      return;
+    }
+
+    // ── Poll /api/order/:id until status is 'paid' (or timeout after 30s) ──
+    async function fetchOrder(id) {
+      const res = await fetch(`/api/order/${id}`);
+      if (!res.ok) throw new Error('Order not found');
+      return res.json();
+    }
+
+    function setStatus(msg) {
+      const el = document.getElementById('confirm-status-msg');
+      if (el) el.textContent = msg;
+    }
+
+    let order = null;
+    const maxAttempts = 10;   // 10 × 3s = 30 seconds
+    let attempt = 0;
+
+    setStatus('Verifying your payment...');
+
+    while (attempt < maxAttempts) {
+      try {
+        order = await fetchOrder(orderId);
+        if (order.status === 'paid' || order.status === 'complete') break;
+        if (order.status === 'failed' || order.status === 'cancelled') {
+          renderFailed(orderId);
+          return;
+        }
+      } catch (e) {
+        // Order not yet written — keep waiting
+      }
+      attempt++;
+      await new Promise(r => setTimeout(r, 3000)); // wait 3s between polls
+    }
+
+    // If still not confirmed after polling, show a pending state (PayFast notify may arrive shortly)
+    if (!order || (order.status !== 'paid' && order.status !== 'complete')) {
+      renderPending(orderId);
+      return;
+    }
+
+    renderConfirmed(order);
+    localStorage.removeItem('2g-pending-order');
+  });
+
+  // ── RENDER: Payment confirmed ────────────────────────────────
+  function renderConfirmed(order) {
+    document.getElementById('order-id').textContent = '#' + order.id;
+
+    // Items
+    document.getElementById('confirm-items').innerHTML = order.cart.map(item => `
+      <div class="confirm-item">
+        <div class="confirm-item__img">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          <span class="confirm-item__qty">${item.qty}</span>
+        </div>
+        <div class="confirm-item__info">
+          <div class="confirm-item__name">${item.name}</div>
+          <div class="confirm-item__meta">Size: ${item.size}</div>
+        </div>
+        <div class="confirm-item__price">R ${(item.price * item.qty).toFixed(2)}</div>
+      </div>
+    `).join('');
+
+    // Totals
+    const shipLabel   = order.shipping === 0 ? 'FREE' : `R ${Number(order.shipping).toFixed(2)}`;
+    const discountRow = order.discount > 0
+      ? `<div class="confirm-total-row" style="color:var(--red)"><span>Discount</span><span>−R ${Number(order.discount).toFixed(2)}</span></div>`
+      : '';
+    document.getElementById('confirm-totals').innerHTML = `
+      <div class="confirm-total-row"><span>Subtotal</span><span>R ${Number(order.subtotal).toFixed(2)}</span></div>
+      ${discountRow}
+      <div class="confirm-total-row"><span>Shipping</span><span>${shipLabel}</span></div>
+      <div class="confirm-total-row confirm-total-row--grand"><span>Total Paid</span><span>R ${Number(order.total).toFixed(2)}</span></div>
+    `;
+
+    // Delivery info
+    document.getElementById('confirm-address').textContent  = order.customer.address || '—';
+    document.getElementById('confirm-contact').textContent  = order.customer.name    || '—';
+    document.getElementById('confirm-email').textContent    = order.customer.email   || '—';
+
+    // Estimated delivery (5 business days)
+    const d = new Date();
+    d.setDate(d.getDate() + 5);
+    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
+    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
+    document.getElementById('confirm-delivery-date').textContent =
+      'By ' + d.toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    // Update badge
+    const badge = document.querySelector('.badge--success');
+    if (badge) badge.textContent = 'Payment Confirmed';
+
+    hideStatus();
+  }
+
+  // ── RENDER: Payment still processing (PayFast notify pending) ─
+  function renderPending(orderId) {
+    document.getElementById('order-id').textContent = '#' + orderId;
+    document.getElementById('confirm-items').innerHTML =
+      '<p style="color:var(--gray-600);font-size:14px;padding:8px 0">Your items will appear once payment is confirmed.</p>';
+    document.getElementById('confirm-totals').innerHTML = '';
+
+    const badge = document.querySelector('.badge--success');
+    if (badge) { badge.textContent = 'Payment Pending'; badge.className = 'confirm-card__badge badge--pending'; }
+
+    const heroSub = document.querySelector('.confirm-hero__sub');
+    if (heroSub) heroSub.textContent = 'Your payment is being processed. This can take a few minutes. You will receive a confirmation email shortly.';
+
+    document.getElementById('confirm-address').textContent  = '—';
+    document.getElementById('confirm-contact').textContent  = '—';
+    document.getElementById('confirm-email').textContent    = '—';
+    document.getElementById('confirm-delivery-date').textContent = 'Pending confirmation';
+
+    hideStatus();
+  }
+
+  // ── RENDER: Payment failed ────────────────────────────────────
+  function renderFailed(orderId) {
+    document.querySelector('.confirm-hero__title').textContent = 'PAYMENT FAILED';
+    document.querySelector('.confirm-checkmark').style.background = '#cc0000';
+    document.querySelector('.confirm-checkmark svg').setAttribute('d', 'M18 6L6 18M6 6l12 12');
+
+    document.getElementById('order-id').textContent = '#' + orderId;
+    document.getElementById('confirm-items').innerHTML =
+      '<p style="color:var(--gray-600);font-size:14px">Your payment could not be processed. No money was taken. Please try again.</p>';
+    document.getElementById('confirm-totals').innerHTML =
+      '<a href="cart.html" class="btn btn--red btn--full" style="margin-top:8px">Try Again</a>';
+
+    hideStatus();
+  }
+
+  function hideStatus() {
+    const el = document.getElementById('confirm-status-msg');
+    if (el) el.style.display = 'none';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — 2G Clothing</title>
+  <meta name="description" content="Your shopping cart — 2G Clothing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  Free delivery on orders over R800 &nbsp;·&nbsp; 2G Clothing — Est. 2018 &nbsp;·&nbsp; South Africa's Original
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo">2<span>G</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Hom</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html?collection=graphic">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="cart.html" class="nav__icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count"></span>
+        </a>
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <button class="mobile-nav__close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="shop.html?collection=graphic">Collections</a>
+  <a href="index.html#about">About</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<!-- CART PAGE -->
+<main class="cart-page">
+  <div class="container">
+    <h1 class="cart-page__title">YOUR BAG</h1>
+
+    <!-- EMPTY STATE -->
+    <div class="cart-empty" id="cart-empty">
+      <div class="cart-empty__icon">🛍️</div>
+      <h2 class="cart-empty__title">Your bag is empty</h2>
+      <p class="cart-empty__sub">Looks like you haven't added anything yet.</p>
+      <a href="shop.html" class="btn btn--dark">Continue Shopping</a>
+    </div>
+
+    <!-- CART WITH ITEMS -->
+    <div class="cart-layout" id="cart-layout" style="display:none">
+      <div class="cart-items" id="cart-items">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="cart-summary">
+        <h2 class="cart-summary__title">Order Summary</h2>
+        <div class="cart-summary__row">
+          <span>Subtotal (<span id="item-count">0</span> items)</span>
+          <span id="summary-subtotal">R0.00</span>
+        </div>
+        <div class="cart-summary__row">
+          <span>Shipping</span>
+          <span id="summary-shipping">Calculated at checkout</span>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <span>Total</span>
+          <span id="summary-total">R0.00</span>
+        </div>
+        <a href="checkout.html" class="btn btn--dark btn--full" style="margin-top:24px" id="checkout-btn">
+          Proceed to Checkout
+        </a>
+        <a href="shop.html" class="btn btn--outline-dark btn--full" style="margin-top:12px">Continue Shopping</a>
+        <p class="cart-summary__note">Taxes included. Shipping calculated at checkout.</p>
+        <div class="cart-summary__payment">
+          <span>VISA</span>
+          <span>MASTERCARD</span>
+          <span>EFT</span>
+          <span>CASH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">2<span>G</span></div>
+        <p class="footer-brand__tagline">"Operate with Style"</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Shop</h4>
+        <ul class="footer-col__links">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html?category=black">Black Collection</a></li>
+          <li><a href="shop.html?category=white">White Collection</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Info</h4>
+        <ul class="footer-col__links">
+          <li><a href="index.html#about">Our Story</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Connect</h4>
+        <ul class="footer-col__links">
+          <li><a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 2G Clothing. All rights reserved.</span>
+      <span>South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function renderCart() {
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartLayout = document.getElementById('cart-layout');
+    const cartItems = document.getElementById('cart-items');
+
+    if (cart.length === 0) {
+      cartEmpty.classList.add('visible');
+      cartLayout.style.display = 'none';
+      return;
+    }
+
+    cartEmpty.classList.remove('visible');
+    cartLayout.style.display = 'grid';
+
+    cartItems.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <a href="product.html?id=${item.id}" class="cart-item__image">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+        </a>
+        <div class="cart-item__body">
+          <div class="cart-item__name">${item.name}</div>
+          <div class="cart-item__meta">Size: ${item.size}</div>
+          <div class="cart-item__actions">
+            <div class="qty-control">
+              <button class="qty-btn qty-minus" onclick="updateQty(${item.id}, '${item.size}', ${item.qty - 1})" aria-label="Decrease">−</button>
+              <input class="qty-input" type="number" value="${item.qty}" min="1" max="10"
+                onchange="updateQty(${item.id}, '${item.size}', parseInt(this.value))" aria-label="Quantity" />
+              <button class="qty-btn qty-plus" onclick="updateQty(${item.id}, '${item.size}', ${item.qty + 1})" aria-label="Increase">+</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px">
+              <span class="cart-item__price">R ${(item.price * item.qty).toFixed(2)}</span>
+              <button class="cart-item__remove" onclick="removeFromCart(${item.id}, '${item.size}')">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Summary
+    const subtotal = getCartTotal();
+    const shipping = subtotal >= 800 ? 0 : 99;
+    const total = subtotal + shipping;
+    const count = getCartCount();
+
+    document.getElementById('item-count').textContent = count;
+    document.getElementById('summary-subtotal').textContent = `R ${subtotal.toFixed(2)}`;
+    document.getElementById('summary-shipping').textContent = shipping === 0 ? 'FREE' : `R ${shipping.toFixed(2)}`;
+    document.getElementById('summary-total').textContent = `R ${total.toFixed(2)}`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+  });
+</script>
+</body>
+</html>

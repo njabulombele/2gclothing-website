@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2G Clothing — Operate with Style</title>
+  <meta name="description" content="2G Clothing. Original South African streetwear. Est. 2018. Operate with Style." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  Free delivery on orders over R800 &nbsp;·&nbsp; 2G Clothing — Est. 2018 &nbsp;·&nbsp; South Africa's Original
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo">2<span>G</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html?collection=graphic">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="cart.html" class="nav__icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count"></span>
+        </a>
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <button class="mobile-nav__close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="shop.html?collection=graphic">Collections</a>
+  <a href="index.html#about">About</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__slides">
+    <div class="hero__slide active">
+      <img src="images/p1.jpeg" alt="2G Clothing Original Two Gee" />
+    </div>
+    <div class="hero__slide">
+      <img src="images/p3.jpeg" alt="2G Clothing Oversized Black" />
+    </div>
+    <div class="hero__slide">
+      <img src="images/p15.jpeg" alt="2G Clothing Coffee First White" />
+    </div>
+    <div class="hero__slide">
+      <img src="images/p9.jpeg" alt="2G Clothing Operate With Style" />
+    </div>
+  </div>
+  <div class="hero__content container">
+    <p class="hero__eyebrow">New Arrivals — Est. 2018</p>
+    <h1 class="hero__title">OPERATE<br />WITH<br />STYLE</h1>
+    <p class="hero__sub">Original South African streetwear. Every tee carries the 2G identity — clean cuts, bold prints, authentic energy.</p>
+    <div class="hero__actions">
+      <a href="shop.html" class="btn btn--primary">Shop Now</a>
+      <a href="shop.html?collection=graphic" class="btn btn--outline">New Drops</a>
+    </div>
+  </div>
+  <div class="hero__dots">
+    <button class="hero__dot active" aria-label="Slide 1"></button>
+    <button class="hero__dot" aria-label="Slide 2"></button>
+    <button class="hero__dot" aria-label="Slide 3"></button>
+    <button class="hero__dot" aria-label="Slide 4"></button>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span>OPERATE WITH STYLE</span><span class="dot">✦</span>
+    <span>EST. 2018</span><span class="dot">✦</span>
+    <span>ORIGINAL SOUTH AFRICAN STREETWEAR</span><span class="dot">✦</span>
+    <span>TWO GRANNIES</span><span class="dot">✦</span>
+    <span>2G CLOTHING</span><span class="dot">✦</span>
+    <span>OPERATE WITH STYLE</span><span class="dot">✦</span>
+    <span>EST. 2018</span><span class="dot">✦</span>
+    <span>ORIGINAL SOUTH AFRICAN STREETWEAR</span><span class="dot">✦</span>
+    <span>TWO GRANNIES</span><span class="dot">✦</span>
+    <span>2G CLOTHING</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- FEATURED — BLACK COLLECTION -->
+<section class="section-featured">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="section-header__eyebrow">The Black Collection</p>
+        <h2 class="section-header__title">Bold. Dark. Iconic.</h2>
+      </div>
+      <a href="shop.html?category=black" class="section-header__link">View All</a>
+    </div>
+    <div class="products-grid products-grid--4" id="featured-black"></div>
+  </div>
+</section>
+
+<!-- COLLECTIONS BANNER -->
+<section class="section-collections">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="section-header__eyebrow">Shop By Collection</p>
+        <h2 class="section-header__title">Find Your Drop</h2>
+      </div>
+    </div>
+    <div class="collections-grid">
+      <a href="shop.html?collection=graphic" class="collection-card collection-card--large">
+        <img src="images/p11.jpeg" alt="Graphic Collection" />
+        <div class="collection-card__content">
+          <p class="collection-card__label">Collection</p>
+          <h3 class="collection-card__title">GRAPHIC SERIES</h3>
+          <span class="collection-card__cta">Shop Now</span>
+        </div>
+      </a>
+      <a href="shop.html?collection=original" class="collection-card">
+        <img src="images/p23.jpeg" alt="Original Collection" />
+        <div class="collection-card__content">
+          <p class="collection-card__label">Collection</p>
+          <h3 class="collection-card__title">ORIGINAL EST.18</h3>
+          <span class="collection-card__cta">Shop Now</span>
+        </div>
+      </a>
+      <a href="shop.html?collection=operate" class="collection-card">
+        <img src="images/p9.jpeg" alt="Operate Collection" />
+        <div class="collection-card__content">
+          <p class="collection-card__label">Collection</p>
+          <h3 class="collection-card__title">OPERATE SERIES</h3>
+          <span class="collection-card__cta">Shop Now</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED — WHITE COLLECTION -->
+<section class="section-featured section-featured--alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="section-header__eyebrow">The White Collection</p>
+        <h2 class="section-header__title">Clean. Fresh. Original.</h2>
+      </div>
+      <a href="shop.html?category=white" class="section-header__link">View All</a>
+    </div>
+    <div class="products-grid products-grid--4" id="featured-white"></div>
+  </div>
+</section>
+
+<!-- ABOUT / BRAND STORY -->
+<section class="section-story container" id="about">
+  <div class="section-story__images">
+    <div class="main-img">
+      <img src="images/p3.jpeg" alt="2G Clothing Brand" />
+    </div>
+    <div class="sub-img">
+      <img src="images/p19.jpeg" alt="Two Grannies Script" />
+    </div>
+    <div class="sub-img">
+      <img src="images/p15.jpeg" alt="Coffee First White" />
+    </div>
+  </div>
+  <div class="section-story__content">
+    <p class="section-story__eyebrow">Our Story</p>
+    <h2 class="section-story__title">Born in 2018. Built on Style.</h2>
+    <p class="section-story__body">2G Clothing was founded with a simple idea: make clothes that feel like you. Not a copy of what's already out there — something original, something South African.</p>
+    <p class="section-story__body">Every design you see carries meaning. From the handwritten "Two grannies." script to the bold graphic back prints — these aren't just tees. They're a statement of how you move through the world.</p>
+    <p class="section-story__body">Two Grannies. Two G's. One identity: <strong>Operate with Style.</strong></p>
+    <div class="section-story__stats">
+      <div class="stat">
+        <div class="stat__number">2018</div>
+        <div class="stat__label">Established</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">16+</div>
+        <div class="stat__label">Designs</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">100%</div>
+        <div class="stat__label">Original</div>
+      </div>
+    </div>
+    <a href="shop.html" class="btn btn--dark">Shop the Collection</a>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<section class="section-social">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="section-header__eyebrow">@2gcl.othing</p>
+        <h2 class="section-header__title">Follow the Movement</h2>
+      </div>
+      <a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener" class="section-header__link">Instagram</a>
+    </div>
+    <div class="social-grid">
+      <a class="social-grid__item" href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <img src="images/p5.jpeg" alt="2G Instagram" />
+        <div class="social-grid__overlay">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+      </a>
+      <a class="social-grid__item" href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <img src="images/p17.jpeg" alt="2G Instagram" />
+        <div class="social-grid__overlay">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+      </a>
+      <a class="social-grid__item" href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <img src="images/p7.jpeg" alt="2G Instagram" />
+        <div class="social-grid__overlay">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+      </a>
+      <a class="social-grid__item" href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <img src="images/p21.jpeg" alt="2G Instagram" />
+        <div class="social-grid__overlay">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+      </a>
+      <a class="social-grid__item" href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">
+        <img src="images/p27.jpeg" alt="2G Instagram" />
+        <div class="social-grid__overlay">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">2<span>G</span></div>
+        <p class="footer-brand__tagline">"Operate with Style"</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Shop</h4>
+        <ul class="footer-col__links">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html?category=black">Black Collection</a></li>
+          <li><a href="shop.html?category=white">White Collection</a></li>
+          <li><a href="shop.html?collection=graphic">Graphic Series</a></li>
+          <li><a href="shop.html?tag=new">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Info</h4>
+        <ul class="footer-col__links">
+          <li><a href="index.html#about">Our Story</a></li>
+          <li><a href="#">Sizing Guide</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Care Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Connect</h4>
+        <ul class="footer-col__links">
+          <li><a href="https://www.instagram.com/2gcl.othing" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@2gclothing" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 2G Clothing. All rights reserved.</span>
+      <span>South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal-overlay" id="quick-view-overlay" role="dialog" aria-modal="true" aria-label="Quick view">
+  <div class="modal">
+    <button class="modal__close" aria-label="Close">✕</button>
+    <div class="modal__image"><img src="" alt="" /></div>
+    <div class="modal__content">
+      <h2 class="modal__name"></h2>
+      <p class="modal__price"></p>
+      <p class="modal__desc"></p>
+      <div class="product-option-label">Select Size</div>
+      <div class="size-grid modal__sizes"></div>
+      <button class="btn btn--dark btn--full modal__add-btn" style="margin-top:16px">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Render featured products
+  function createCard(product) {
+    return `
+      <div class="product-card" onclick="window.location='product.html?id=${product.id}'">
+        <div class="product-card__image-wrap">
+          <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+          ${product.tag ? `<span class="tag tag--${product.tag} product-card__tag">${product.tag === 'new' ? 'New' : 'Best Seller'}</span>` : ''}
+          <button class="product-card__quick-add" data-product-id="${product.id}">Quick Add</button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__name">${product.name}</div>
+          <div class="product-card__price"><span class="currency">R</span>${product.price.toFixed(2)}</div>
+        </div>
+      </div>`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const blackGrid = document.getElementById('featured-black');
+    const whiteGrid = document.getElementById('featured-white');
+    const blackProds = products.filter(p => p.category === 'black').slice(0, 4);
+    const whiteProds = products.filter(p => p.category === 'white').slice(0, 4);
+    blackGrid.innerHTML = blackProds.map(createCard).join('');
+    whiteGrid.innerHTML = whiteProds.map(createCard).join('');
+    initQuickAdd();
+  });
+</script>
+</body>
+</html>
