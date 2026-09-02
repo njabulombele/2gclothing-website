@@ -1616,19 +1616,23 @@ h4 {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  z-index: 0;
 }
 
+/* All videos hidden by default */
 .hero__video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   opacity: 0;
   transition: opacity 1.2s ease;
+  z-index: 0;
 }
 
+/* Active video fully visible */
 .hero__video.active {
   opacity: 1;
 }
@@ -1638,15 +1642,16 @@ h4 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.15) 40%,
-    rgba(0, 0, 0, 0.65) 100%
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.6) 100%
   );
   z-index: 1;
 }
 
-/* Content sits above the overlay */
+/* Content and dots above overlay */
 .hero--video .hero__content {
+  position: relative;
   z-index: 2;
 }
 .hero--video .hero__dots {
@@ -1659,22 +1664,23 @@ h4 {
   bottom: 32px;
   right: 80px;
   z-index: 3;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   transition: all var(--transition);
 }
 .hero__mute-btn:hover {
   background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 768px) {
