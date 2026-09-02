@@ -51,22 +51,42 @@
   <a href="cart.html">Cart</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero__slides">
-    <div class="hero__slide active">
-      <img src="images/p1.jpeg" alt="2G Clothing Original Two Gee" />
-    </div>
-    <div class="hero__slide">
-      <img src="images/p3.jpeg" alt="2G Clothing Oversized Black" />
-    </div>
-    <div class="hero__slide">
-      <img src="images/p15.jpeg" alt="2G Clothing Coffee First White" />
-    </div>
-    <div class="hero__slide">
-      <img src="images/p9.jpeg" alt="2G Clothing Operate With Style" />
-    </div>
+<!-- HERO VIDEO -->
+<section class="hero hero--video">
+  <!-- Video background — cycles through all 4 videos -->
+  <div class="hero__video-wrap">
+    <video
+      class="hero__video active"
+      src="images/hero-video.mp4"
+      autoplay muted loop playsinline
+      preload="auto"
+      poster="images/p1.jpeg"
+    ></video>
+    <video
+      class="hero__video"
+      src="images/hero-video2.mp4"
+      muted playsinline
+      preload="none"
+      poster="images/p3.jpeg"
+    ></video>
+    <video
+      class="hero__video"
+      src="images/hero-video3.mp4"
+      muted playsinline
+      preload="none"
+      poster="images/p15.jpeg"
+    ></video>
+    <video
+      class="hero__video"
+      src="images/hero-video4.mp4"
+      muted playsinline
+      preload="none"
+      poster="images/p9.jpeg"
+    ></video>
+    <!-- Dark overlay so text stays readable -->
+    <div class="hero__video-overlay"></div>
   </div>
+
   <div class="hero__content container">
     <p class="hero__eyebrow">New Arrivals — Est. 2018</p>
     <h1 class="hero__title">OPERATE<br />WITH<br />STYLE</h1>
@@ -76,12 +96,24 @@
       <a href="shop.html?collection=graphic" class="btn btn--outline">New Drops</a>
     </div>
   </div>
+
+  <!-- Video dots -->
   <div class="hero__dots">
-    <button class="hero__dot active" aria-label="Slide 1"></button>
-    <button class="hero__dot" aria-label="Slide 2"></button>
-    <button class="hero__dot" aria-label="Slide 3"></button>
-    <button class="hero__dot" aria-label="Slide 4"></button>
+    <button class="hero__dot active" aria-label="Video 1"></button>
+    <button class="hero__dot" aria-label="Video 2"></button>
+    <button class="hero__dot" aria-label="Video 3"></button>
+    <button class="hero__dot" aria-label="Video 4"></button>
   </div>
+
+  <!-- Mute/unmute toggle -->
+  <button class="hero__mute-btn" id="mute-btn" aria-label="Unmute video">
+    <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
 </section>
 
 <!-- MARQUEE -->
