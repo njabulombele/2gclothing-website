@@ -6,9 +6,10 @@ const products = [
     collection: "original",
     price: 350,
     tag: "bestseller",
-    description: "The original Two Gee tee. Bold red brush stroke with clean white block letters. A statement piece that started it all.",
+    description:
+      "The original Two Gee tee. Bold red brush stroke with clean white block letters. A statement piece that started it all.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p1.jpeg", "images/p2.jpeg"]
+    images: ["images/p1.jpeg", "images/p2.jpeg"],
   },
   {
     id: 2,
@@ -17,9 +18,10 @@ const products = [
     collection: "signature",
     price: 380,
     tag: "new",
-    description: "Oversized fit with the iconic bold 2G logo centre chest. Clean, minimal, unmistakable.",
+    description:
+      "Oversized fit with the iconic bold 2G logo centre chest. Clean, minimal, unmistakable.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p3.jpeg", "images/p4.jpeg"]
+    images: ["images/p3.jpeg", "images/p4.jpeg"],
   },
   {
     id: 3,
@@ -28,9 +30,10 @@ const products = [
     collection: "signature",
     price: 350,
     tag: "",
-    description: "The stacked 2G fade logo — a gradient of identity. Subtle on the chest, loud in the culture.",
+    description:
+      "The stacked 2G fade logo — a gradient of identity. Subtle on the chest, loud in the culture.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p5.jpeg", "images/p6.jpeg"]
+    images: ["images/p5.jpeg", "images/p6.jpeg"],
   },
   {
     id: 4,
@@ -39,9 +42,10 @@ const products = [
     collection: "graphic",
     price: 420,
     tag: "new",
-    description: "An editorial statement. The TW.O.G Fashion back print channels magazine energy — bold typography, vintage fashion photography, and the 2G world-view.",
+    description:
+      "An editorial statement. The TW.O.G Fashion back print channels magazine energy — bold typography, vintage fashion photography, and the 2G world-view.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p7.jpeg", "images/p8.jpeg"]
+    images: ["images/p7.jpeg", "images/p8.jpeg"],
   },
   {
     id: 5,
@@ -50,9 +54,10 @@ const products = [
     collection: "operate",
     price: 400,
     tag: "bestseller",
-    description: "The mantra, loud. Distressed grunge typography with the 2G identity baked in. Operate with Style is more than a slogan — it's a way of life.",
+    description:
+      "The mantra, loud. Distressed grunge typography with the 2G identity baked in. Operate with Style is more than a slogan — it's a way of life.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p9.jpeg", "images/p10.jpeg"]
+    images: ["images/p9.jpeg", "images/p10.jpeg"],
   },
   {
     id: 6,
@@ -61,9 +66,10 @@ const products = [
     collection: "graphic",
     price: 420,
     tag: "new",
-    description: "Operate with Style. Wave Seeker. A skull with a mission — retro-illustrated back print that surfs between art and streetwear.",
+    description:
+      "Operate with Style. Wave Seeker. A skull with a mission — retro-illustrated back print that surfs between art and streetwear.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p11.jpeg", "images/p12.jpeg"]
+    images: ["images/p11.jpeg", "images/p12.jpeg"],
   },
   {
     id: 7,
@@ -72,9 +78,10 @@ const products = [
     collection: "graphic",
     price: 420,
     tag: "",
-    description: "Operate with Style. Enjoy the Summer Time. A skeleton in a bucket hat soaking it all in — because style doesn't take a holiday.",
+    description:
+      "Operate with Style. Enjoy the Summer Time. A skeleton in a bucket hat soaking it all in — because style doesn't take a holiday.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p13.jpeg", "images/p14.jpeg"]
+    images: ["images/p13.jpeg", "images/p14.jpeg"],
   },
   {
     id: 8,
@@ -83,9 +90,10 @@ const products = [
     collection: "graphic",
     price: 400,
     tag: "bestseller",
-    description: "Coffee First Please. EST 2018. Two Gee Original Clothing. Deep forest green print on clean white — a morning ritual made into a tee.",
+    description:
+      "Coffee First Please. EST 2018. Two Gee Original Clothing. Deep forest green print on clean white — a morning ritual made into a tee.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p15.jpeg", "images/p16.jpeg"]
+    images: ["images/p15.jpeg", "images/p16.jpeg"],
   },
   {
     id: 9,
@@ -94,9 +102,10 @@ const products = [
     collection: "graphic",
     price: 420,
     tag: "new",
-    description: "Two•Grans. Salt Licked Memories. A skeleton floating on the ocean, cocktail in hand. Vintage sunset tones on white — summer nostalgia in print form.",
+    description:
+      "Two•Grans. Salt Licked Memories. A skeleton floating on the ocean, cocktail in hand. Vintage sunset tones on white — summer nostalgia in print form.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p17.jpeg", "images/p18.jpeg"]
+    images: ["images/p17.jpeg", "images/p18.jpeg"],
   },
   {
     id: 10,
@@ -105,9 +114,10 @@ const products = [
     collection: "original",
     price: 350,
     tag: "",
-    description: "Effortless. Just the cursive signature, nothing more. Two grannies. in handwritten script — minimal luxury.",
+    description:
+      "Effortless. Just the cursive signature, nothing more. Two grannies. in handwritten script — minimal luxury.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p19.jpeg", "images/p20.jpeg"]
+    images: ["images/p19.jpeg", "images/p20.jpeg"],
   },
   {
     id: 11,
@@ -116,9 +126,10 @@ const products = [
     collection: "original",
     price: 380,
     tag: "new",
-    description: "The script tee with a twist — black ringer collar and cuffs give this one a retro edge. Classic silhouette, original energy.",
+    description:
+      "The script tee with a twist — black ringer collar and cuffs give this one a retro edge. Classic silhouette, original energy.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p21.jpeg", "images/p22.jpeg"]
+    images: ["images/p21.jpeg", "images/p22.jpeg"],
   },
   {
     id: 12,
@@ -127,9 +138,10 @@ const products = [
     collection: "original",
     price: 350,
     tag: "",
-    description: "The heritage piece. 2/G monogram with 'TWO GRANNIES Original est·18' — a clean, luxury-brand-inspired print that carries the full history of 2G.",
+    description:
+      "The heritage piece. 2/G monogram with 'TWO GRANNIES Original est·18' — a clean, luxury-brand-inspired print that carries the full history of 2G.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p23.jpeg", "images/p24.jpeg"]
+    images: ["images/p23.jpeg", "images/p24.jpeg"],
   },
   {
     id: 13,
@@ -138,9 +150,10 @@ const products = [
     collection: "signature",
     price: 370,
     tag: "",
-    description: "Front and back print. Small chest logo, large back statement. 'TWO Grans CLOTHING Original est. 2018' — wear the full brand.",
+    description:
+      "Front and back print. Small chest logo, large back statement. 'TWO Grans CLOTHING Original est. 2018' — wear the full brand.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p25.jpeg", "images/p26.jpeg"]
+    images: ["images/p25.jpeg", "images/p26.jpeg"],
   },
   {
     id: 14,
@@ -149,9 +162,10 @@ const products = [
     collection: "original",
     price: 370,
     tag: "bestseller",
-    description: "Script meets structure. '2Gee EST 2018 CLOTHING' in elegant calligraphy — the brand mark in its most refined form.",
+    description:
+      "Script meets structure. '2Gee EST 2018 CLOTHING' in elegant calligraphy — the brand mark in its most refined form.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p27.jpeg", "images/p28.jpeg"]
+    images: ["images/p27.jpeg", "images/p28.jpeg"],
   },
   {
     id: 15,
@@ -160,9 +174,10 @@ const products = [
     collection: "signature",
     price: 350,
     tag: "",
-    description: "Bold serif '2G' with 'TWO GRANNIES' underneath. Clean. Confident. The kind of tee that lets the brand speak quietly.",
+    description:
+      "Bold serif '2G' with 'TWO GRANNIES' underneath. Clean. Confident. The kind of tee that lets the brand speak quietly.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p29.jpeg", "images/p30.jpeg"]
+    images: ["images/p29.jpeg", "images/p30.jpeg"],
   },
   {
     id: 16,
@@ -171,8 +186,119 @@ const products = [
     collection: "signature",
     price: 350,
     tag: "",
-    description: "The G2 monogram — a fused letterform that becomes its own mark. Minimalist chest placement, maximum identity.",
+    description:
+      "The G2 monogram — a fused letterform that becomes its own mark. Minimalist chest placement, maximum identity.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/p31.jpeg", "images/p32.jpeg"]
-  }
+    images: ["images/p31.jpeg", "images/p32.jpeg"],
+  },
+
+  // ── TWO PIECE COLLECTION ─────────────────────────────────────
+  {
+    id: 17,
+    name: "2G Two Piece Set — Vol. 1",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "new",
+    description:
+      "The 2G Two Piece — matching top and bottom, built for those who move as one unit. Operate with Style from head to toe.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/5g.jpg"],
+  },
+  {
+    id: 18,
+    name: "2G Two Piece Set — Vol. 2",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "new",
+    description:
+      "Clean lines, coordinated energy. The 2G Two Piece Vol. 2 — wear the full look or split it up. Either way, you're operating with style.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/6g.jpg"],
+  },
+  {
+    id: 19,
+    name: "2G Two Piece Set — Vol. 3",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "new",
+    description:
+      "A complete look from one brand. Matched fabric, matched identity — the 2G Two Piece Vol. 3 is the full statement.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/7g.jpg"],
+  },
+  {
+    id: 20,
+    name: "2G Two Piece Set — Vol. 4",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "bestseller",
+    description:
+      "The fan favourite. Two Piece Vol. 4 — the set that started a movement. Grab it before it's gone.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/8g.jpg"],
+  },
+  {
+    id: 21,
+    name: "2G Two Piece Set — Vol. 5",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "",
+    description:
+      "Effortless coordination. Vol. 5 keeps it clean with a matched 2G set that works for the streets or a night out.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/9g.jpg"],
+  },
+  {
+    id: 22,
+    name: "2G Two Piece Set — Vol. 6",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "",
+    description:
+      "Bold energy, coordinated look. Vol. 6 brings the 2G identity into a full outfit — no mixing required.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/10g.jpg"],
+  },
+  {
+    id: 23,
+    name: "2G Two Piece Set — Vol. 7",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "new",
+    description:
+      "Fresh drop. Vol. 7 is the latest addition to the Two Piece lineup — clean, sharp, and unmistakably 2G.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/11g.jpg"],
+  },
+  {
+    id: 24,
+    name: "2G Two Piece Set — Vol. 8",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "",
+    description:
+      "Streetwear coordination at its finest. Vol. 8 — the complete 2G look in one set.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/12g.jpg"],
+  },
+  {
+    id: 25,
+    name: "2G Two Piece Set — Vol. 9",
+    category: "two-piece",
+    collection: "two-piece",
+    price: 750,
+    tag: "new",
+    description:
+      "The newest drop in the Two Piece series. Vol. 9 — limited stock, full style. Operate with Style, head to toe.",
+    sizes: ["S", "M", "L", "XL"],
+    images: ["images/13g.jpg"],
+  },
 ];

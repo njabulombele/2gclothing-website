@@ -66,6 +66,7 @@
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="black">Black Tees</button>
       <button class="filter-btn" data-filter="white">White Tees</button>
+      <button class="filter-btn" data-filter="two-piece">Two Piece</button>
       <button class="filter-btn" data-filter="graphic">Graphic Series</button>
       <button class="filter-btn" data-filter="original">Original Est.18</button>
       <button class="filter-btn" data-filter="operate">Operate Series</button>
@@ -112,6 +113,7 @@
           <li><a href="shop.html">All Products</a></li>
           <li><a href="shop.html?category=black">Black Collection</a></li>
           <li><a href="shop.html?category=white">White Collection</a></li>
+          <li><a href="shop.html?category=two-piece">Two Piece</a></li>
           <li><a href="shop.html?collection=graphic">Graphic Series</a></li>
           <li><a href="shop.html?tag=new">New Arrivals</a></li>
         </ul>
@@ -176,17 +178,23 @@
     if (params.get('category')) {
       const cat = params.get('category');
       filtered = filtered.filter(p => p.category === cat);
+      // Pre-select the matching filter button
+      if (['black', 'white', 'two-piece'].includes(cat)) {
+        currentFilter = cat;
+      }
     } else if (params.get('collection')) {
       const col = params.get('collection');
       filtered = filtered.filter(p => p.collection === col);
+      currentFilter = col;
     } else if (params.get('tag')) {
       const tag = params.get('tag');
       filtered = filtered.filter(p => p.tag === tag);
+      currentFilter = tag;
     }
 
     // UI filter
     if (currentFilter !== 'all') {
-      if (['black', 'white'].includes(currentFilter)) {
+      if (['black', 'white', 'two-piece'].includes(currentFilter)) {
         filtered = filtered.filter(p => p.category === currentFilter);
       } else if (currentFilter === 'new') {
         filtered = filtered.filter(p => p.tag === 'new');
@@ -231,14 +239,24 @@
     // Set page subtitle from URL params
     const params = new URLSearchParams(window.location.search);
     const subtitle = document.getElementById('shop-subtitle');
-    if (params.get('category') === 'black') subtitle.textContent = 'Black Collection';
-    else if (params.get('category') === 'white') subtitle.textContent = 'White Collection';
-    else if (params.get('collection') === 'graphic') subtitle.textContent = 'Graphic Series';
+    if (params.get('category') === 'black')           subtitle.textContent = 'Black Collection';
+    else if (params.get('category') === 'white')      subtitle.textContent = 'White Collection';
+    else if (params.get('category') === 'two-piece')  subtitle.textContent = 'Two Piece Collection';
+    else if (params.get('collection') === 'graphic')  subtitle.textContent = 'Graphic Series';
     else if (params.get('collection') === 'original') subtitle.textContent = 'Original Est. 2018';
-    else if (params.get('collection') === 'operate') subtitle.textContent = 'Operate Series';
-    else if (params.get('tag') === 'new') subtitle.textContent = 'New Arrivals';
+    else if (params.get('collection') === 'operate')  subtitle.textContent = 'Operate Series';
+    else if (params.get('tag') === 'new')              subtitle.textContent = 'New Arrivals';
 
     renderShop();
+
+    // Highlight the correct filter button based on URL param
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      if (btn.dataset.filter === currentFilter) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
 
     // Filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {

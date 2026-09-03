@@ -162,6 +162,20 @@
   </div>
 </section>
 
+<!-- FEATURED — TWO PIECE COLLECTION -->
+<section class="section-featured">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="section-header__eyebrow">New Drop</p>
+        <h2 class="section-header__title">Two Piece Collection</h2>
+      </div>
+      <a href="shop.html?category=two-piece" class="section-header__link">View All</a>
+    </div>
+    <div class="products-grid products-grid--4" id="featured-twopiece"></div>
+  </div>
+</section>
+
 <!-- ABOUT / BRAND STORY -->
 <section class="section-story container" id="about">
   <div class="section-story__images">
@@ -266,6 +280,7 @@
           <li><a href="shop.html">All Products</a></li>
           <li><a href="shop.html?category=black">Black Collection</a></li>
           <li><a href="shop.html?category=white">White Collection</a></li>
+          <li><a href="shop.html?category=two-piece">Two Piece</a></li>
           <li><a href="shop.html?collection=graphic">Graphic Series</a></li>
           <li><a href="shop.html?tag=new">New Arrivals</a></li>
         </ul>
@@ -336,12 +351,15 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const blackGrid = document.getElementById('featured-black');
-    const whiteGrid = document.getElementById('featured-white');
-    const blackProds = products.filter(p => p.category === 'black').slice(0, 4);
-    const whiteProds = products.filter(p => p.category === 'white').slice(0, 4);
-    blackGrid.innerHTML = blackProds.map(createCard).join('');
-    whiteGrid.innerHTML = whiteProds.map(createCard).join('');
+    const blackGrid     = document.getElementById('featured-black');
+    const whiteGrid     = document.getElementById('featured-white');
+    const twoPieceGrid  = document.getElementById('featured-twopiece');
+    const blackProds    = products.filter(p => p.category === 'black').slice(0, 4);
+    const whiteProds    = products.filter(p => p.category === 'white').slice(0, 4);
+    const twoPieceProds = products.filter(p => p.category === 'two-piece').slice(0, 4);
+    blackGrid.innerHTML    = blackProds.map(createCard).join('');
+    whiteGrid.innerHTML    = whiteProds.map(createCard).join('');
+    twoPieceGrid.innerHTML = twoPieceProds.map(createCard).join('');
     initQuickAdd();
   });
 </script>
