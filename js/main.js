@@ -109,64 +109,35 @@ function initNav() {
 }
 
 // ---- HERO VIDEO SLIDER ----
+// ---- HERO SLIDER ----
 function initHeroSlider() {
-  const videos = document.querySelectorAll(".hero__video");
+  const slides = document.querySelectorAll(".hero__slide");
   const dots = document.querySelectorAll(".hero__dot");
-  const muteBtn = document.getElementById("mute-btn");
-  if (!videos.length) return;
-
+  if (!slides.length) return;
   let current = 0;
-  let isMuted = true;
+  let interval;
 
   function goTo(index) {
-    // Pause and hide current
-    videos[current].pause();
-    videos[current].classList.remove("active");
+    slides[current].classList.remove("active");
     if (dots[current]) dots[current].classList.remove("active");
-
-    // Show and play new
     current = index;
-    const v = videos[current];
-    v.classList.add("active");
-    v.muted = isMuted;
-    v.currentTime = 0;
-    v.play().catch(() => {}); // catch autoplay block silently
+    slides[current].classList.add("active");
     if (dots[current]) dots[current].classList.add("active");
   }
 
-  // When current video ends, advance to next
-  videos.forEach((v, i) => {
-    v.addEventListener("ended", () => {
-      goTo((i + 1) % videos.length);
-    });
-    // Also preload the next video when current one starts playing
-    v.addEventListener("play", () => {
-      const next = videos[(i + 1) % videos.length];
-      if (next.preload === "none") next.preload = "auto";
-    });
-  });
-
-  // Dot click
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => goTo(i));
-  });
-
-  // Mute / unmute toggle
-  if (muteBtn) {
-    muteBtn.addEventListener("click", () => {
-      isMuted = !isMuted;
-      videos[current].muted = isMuted;
-      muteBtn.querySelector(".icon-muted").style.display = isMuted
-        ? ""
-        : "none";
-      muteBtn.querySelector(".icon-unmuted").style.display = !isMuted
-        ? ""
-        : "none";
-    });
+  function next() {
+    goTo((current + 1) % slides.length);
   }
 
-  // Start first video
-  videos[0].play().catch(() => {});
+  interval = setInterval(next, 5000);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      clearInterval(interval);
+      goTo(i);
+      interval = setInterval(next, 5000);
+    });
+  });
 }
 
 // ---- ACCORDION ----
