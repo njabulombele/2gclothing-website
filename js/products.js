@@ -198,7 +198,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 1",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "new",
     description:
       "The 2G Two Piece — matching top and bottom, built for those who move as one unit. Operate with Style from head to toe.",
@@ -210,7 +210,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 2",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "new",
     description:
       "Clean lines, coordinated energy. The 2G Two Piece Vol. 2 — wear the full look or split it up. Either way, you're operating with style.",
@@ -222,7 +222,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 3",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "new",
     description:
       "A complete look from one brand. Matched fabric, matched identity — the 2G Two Piece Vol. 3 is the full statement.",
@@ -234,7 +234,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 4",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "bestseller",
     description:
       "The fan favourite. Two Piece Vol. 4 — the set that started a movement. Grab it before it's gone.",
@@ -246,7 +246,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 5",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "",
     description:
       "Effortless coordination. Vol. 5 keeps it clean with a matched 2G set that works for the streets or a night out.",
@@ -258,7 +258,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 6",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "",
     description:
       "Bold energy, coordinated look. Vol. 6 brings the 2G identity into a full outfit — no mixing required.",
@@ -270,7 +270,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 7",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "new",
     description:
       "Fresh drop. Vol. 7 is the latest addition to the Two Piece lineup — clean, sharp, and unmistakably 2G.",
@@ -282,7 +282,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 8",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "",
     description:
       "Streetwear coordination at its finest. Vol. 8 — the complete 2G look in one set.",
@@ -294,7 +294,7 @@ const products = [
     name: "2G Two Piece Set — Vol. 9",
     category: "two-piece",
     collection: "two-piece",
-    price: 750,
+    price: 500,
     tag: "new",
     description:
       "The newest drop in the Two Piece series. Vol. 9 — limited stock, full style. Operate with Style, head to toe.",
