@@ -305,7 +305,7 @@ const products = [
   // ── NEW TWO PIECE ARRIVALS ────────────────────────────────────
   {
     id: 26,
-    name: "Cargo Set — R700",
+    name: "2G Two Piece Set — Vol. 10",
     category: "two-piece",
     collection: "two-piece",
     price: 700,
@@ -317,7 +317,7 @@ const products = [
   },
   {
     id: 27,
-    name: "Dress Set — R850",
+    name: "2G Two Piece Set — Vol. 11",
     category: "two-piece",
     collection: "two-piece",
     price: 850,
@@ -329,7 +329,7 @@ const products = [
   },
   {
     id: 28,
-    name: "Brown Two Piece — R1100",
+    name: "2G Two Piece Set — Vol. 12",
     category: "two-piece",
     collection: "two-piece",
     price: 1100,
@@ -341,7 +341,7 @@ const products = [
   },
   {
     id: 29,
-    name: "Grey Two Piece — R1100",
+    name: "2G Two Piece Set — Vol. 13",
     category: "two-piece",
     collection: "two-piece",
     price: 1100,
@@ -353,7 +353,7 @@ const products = [
   },
   {
     id: 30,
-    name: "Red Two Piece — R1100",
+    name: "2G Two Piece Set — Vol. 14",
     category: "two-piece",
     collection: "two-piece",
     price: 1100,
@@ -365,10 +365,7 @@ const products = [
   },
   {
     id: 31,
-    name: "Two Piece Set — R1200",
-    category: "two-piece",
-    collection: "two-piece",
-    price: 1200,
+    name: "2G Two Piece Set — Vol. 15",
     tag: "new",
     description:
       "Premium two piece set. Tailored fit, quality fabric, and the 2G identity woven in.",
@@ -377,7 +374,7 @@ const products = [
   },
   {
     id: 32,
-    name: "Pink Two Piece — R1200",
+    name: "2G Two Piece Set — Vol. 16",
     category: "two-piece",
     collection: "two-piece",
     price: 1200,
@@ -389,7 +386,7 @@ const products = [
   },
   {
     id: 33,
-    name: "Cargo Set — R1500",
+    name: "2G Two Piece Set — Vol. 17",
     category: "two-piece",
     collection: "two-piece",
     price: 1500,
@@ -401,7 +398,7 @@ const products = [
   },
   {
     id: 34,
-    name: "Orange Two Piece — R1500",
+    name: "2G Two Piece Set — Vol. 18",
     category: "two-piece",
     collection: "two-piece",
     price: 1500,
@@ -413,7 +410,7 @@ const products = [
   },
   {
     id: 35,
-    name: "Two Piece Set — R1600",
+    name: "2G Two Piece Set — Vol. 19",
     category: "two-piece",
     collection: "two-piece",
     price: 1600,
@@ -425,7 +422,7 @@ const products = [
   },
   {
     id: 36,
-    name: "Pants and Kimono — R1650",
+    name: "2G Two Piece Set — Vol. 20",
     category: "two-piece",
     collection: "two-piece",
     price: 1650,
