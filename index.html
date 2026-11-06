@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
@@ -356,7 +357,7 @@
     const twoPieceGrid  = document.getElementById('featured-twopiece');
     const blackProds    = products.filter(p => p.category === 'black').slice(0, 4);
     const whiteProds    = products.filter(p => p.category === 'white').slice(0, 4);
-    const twoPieceProds = products.filter(p => p.category === 'two-piece').slice(0, 4);
+    const twoPieceProds = products.filter(p => p.category === 'two-piece').slice(0, 8);
     blackGrid.innerHTML    = blackProds.map(createCard).join('');
     whiteGrid.innerHTML    = whiteProds.map(createCard).join('');
     twoPieceGrid.innerHTML = twoPieceProds.map(createCard).join('');
