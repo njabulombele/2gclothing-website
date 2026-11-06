@@ -313,7 +313,7 @@ const products = [
     description:
       "Cargo two piece set. Practical pockets, clean lines, full coordination. Operate with Style on the move.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R700 Cargo.jpeg"],
+    images: ["images/R700-Cargo.jpeg"],
   },
   {
     id: 27,
@@ -325,7 +325,7 @@ const products = [
     description:
       "Elegant two piece dress set. Flowing fabric with a structured top — designed for those who make an entrance.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R850 dress.jpeg"],
+    images: ["images/R850-dress.jpeg"],
   },
   {
     id: 28,
@@ -337,7 +337,7 @@ const products = [
     description:
       "Rich brown tones in a coordinated two piece. Earthy, warm, and unmistakably stylish.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1100 brown.jpeg"],
+    images: ["images/R1100-brown.jpeg"],
   },
   {
     id: 29,
@@ -349,7 +349,7 @@ const products = [
     description:
       "Clean grey two piece set. Neutral tones that go with everything. Understated but never overlooked.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1100 GREY.jpeg"],
+    images: ["images/R1100-GREY.jpeg"],
   },
   {
     id: 30,
@@ -361,7 +361,7 @@ const products = [
     description:
       "Bold red two piece. Make a statement without saying a word. For those who operate with confidence.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1100 red.jpeg"],
+    images: ["images/R1100-red.jpeg"],
   },
   {
     id: 31,
@@ -370,7 +370,7 @@ const products = [
     description:
       "Premium two piece set. Tailored fit, quality fabric, and the 2G identity woven in.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1200 piece.jpeg"],
+    images: ["images/R1200-piece.jpeg"],
   },
   {
     id: 32,
@@ -382,7 +382,7 @@ const products = [
     description:
       "Soft pink two piece set. Fresh, bold, and full of personality. Stand out, stay sharp.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1200 Pink.jpeg"],
+    images: ["images/R1200-Pink.jpeg"],
   },
   {
     id: 33,
@@ -394,7 +394,7 @@ const products = [
     description:
       "Premium cargo two piece. Heavy-duty fabric, multiple pockets, and a silhouette that commands attention.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1500 cargo.jpeg"],
+    images: ["images/R1500-cargo.jpeg"],
   },
   {
     id: 34,
@@ -406,7 +406,7 @@ const products = [
     description:
       "Vibrant orange two piece. For those who aren't afraid of colour. Bold energy, full coordination.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1500 Orange.jpeg"],
+    images: ["images/R1500-Orange.jpeg"],
   },
   {
     id: 35,
@@ -418,7 +418,7 @@ const products = [
     description:
       "Luxury two piece set. The finest in the collection — premium fabric, precise tailoring, and the full 2G treatment.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1600 piece.jpeg"],
+    images: ["images/R1600-piece.jpeg"],
   },
   {
     id: 36,
@@ -430,6 +430,6 @@ const products = [
     description:
       "Pants and kimono two piece. Flowing kimono over structured pants — the most unique set in the collection. East meets street.",
     sizes: ["S", "M", "L", "XL"],
-    images: ["images/R1650 Pants and Kimono.jpeg"],
+    images: ["images/R1650-Pants-and-Kimono.jpeg"],
   },
 ];
